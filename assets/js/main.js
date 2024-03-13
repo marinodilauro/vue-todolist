@@ -25,7 +25,23 @@ createApp({
     }
   },
   methods: {
-
+    /* 
+        addTask() {
+          if (this.newTask.name.length > 3) {
+    
+            this.tasks.unshift(this.newTask);
+    
+            this.errorMessage = false;
+    
+            this.newTask = { name: '', done: false };
+    
+          } else {
+    
+            this.errorMessage = 'Error! You must add at least 4 characters';
+    
+          }
+    
+        }, */
     addTask() {
       if (this.newTask.name.length > 3) {
 
@@ -33,7 +49,7 @@ createApp({
 
         this.errorMessage = false;
 
-        this.newTask = { name: '', done: false };
+        this.newTask = { ...this.newTask, name: '' };
 
       } else {
 
@@ -43,9 +59,9 @@ createApp({
 
     },
 
-    completeTask(taskIndex) {
+    completeTask(index) {
 
-      this.tasks[taskIndex].done = !this.tasks[taskIndex].done;
+      this.tasks[index].done = !this.tasks[index].done;
 
     },
 
