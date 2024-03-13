@@ -30,4 +30,12 @@ body {
     font-family: "Fredoka", sans-serif;
 }
 
+ul {
+    li {
+        span {
+            padding-right: 1rem;
+        }
+    }
+}
+
 /* #endregion ||||| COMMON RULES ||||| */

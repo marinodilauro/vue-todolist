@@ -18,5 +18,14 @@ createApp({
         }
       ]
     }
+  },
+  methods: {
+
+    removeTask(taskId) {
+
+      this.tasks.splice(taskId, 1);
+
+    }
+
   }
 }).mount('#app')
