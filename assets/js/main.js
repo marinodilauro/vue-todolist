@@ -3,6 +3,11 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      newTask: {
+        name: '',
+        done: false
+      },
+      errorMessage: false,
       tasks: [
         {
           name: 'learn php',
@@ -20,6 +25,23 @@ createApp({
     }
   },
   methods: {
+
+    addTask() {
+      if (this.newTask.name.length > 3) {
+
+        this.tasks.unshift(this.newTask);
+
+        this.errorMessage = false;
+
+        this.newTask = { name: '', done: false };
+
+      } else {
+
+        this.errorMessage = 'Error! You must add at least 4 characters';
+
+      }
+
+    },
 
     removeTask(taskId) {
 
