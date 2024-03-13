@@ -58,17 +58,20 @@
 
         <!-- Tasks list -->
 
-        <ul>
-            <li v-for="(task, index) in tasks">
-                <span @click="completeTask(index)" :class="{taskCompleted: tasks[index].done}">
+        <div class="card w-25 pt-3">
+            <ul>
+                <li v-for="(task, index) in tasks">
 
-                    {{tasks[index].name}}
+                    <span @click="completeTask(index)" :class="{taskCompleted: tasks[index].done}">
 
-                </span>
-                <i class=" fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
-            </li>
-        </ul>
+                        {{tasks[index].name}}
 
+                    </span>
+                    <i class=" fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
+
+                </li>
+            </ul>
+        </div>
 
     </div>
 

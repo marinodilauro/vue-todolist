@@ -29,6 +29,8 @@ body {
 }
 
 ul {
+    list-style: none;
+
     li {
         span {
             padding-right: 1rem;
