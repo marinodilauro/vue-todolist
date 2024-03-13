@@ -33,6 +33,10 @@ ul {
         span {
             padding-right: 1rem;
         }
+
+        i:hover {
+            cursor: pointer;
+        }
     }
 }
 
