@@ -35,6 +35,7 @@
 
         <div class="mb-3 w-25">
 
+            <!-- Input -->
             <label for="" class="form-label">Insert new task</label>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Type your task here" v-model.trim="newTask.name"
@@ -46,11 +47,15 @@
         </div>
 
 
-
+        <!-- Tasks list -->
         <ul>
             <li v-for="(task, index) in tasks">
-                <span> {{tasks[index].name}} </span>
-                <i class="fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
+                <span @click="completeTask(index)" :class="{taskCompleted: tasks[index].done}">
+
+                    {{tasks[index].name}}
+
+                </span>
+                <i class=" fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
             </li>
         </ul>
 

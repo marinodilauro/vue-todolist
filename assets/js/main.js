@@ -43,6 +43,13 @@ createApp({
 
     },
 
+    completeTask(taskIndex) {
+
+      this.tasks[taskIndex].done = !this.tasks[taskIndex].done;
+
+    },
+
+
     removeTask(taskId) {
 
       this.tasks.splice(taskId, 1);
