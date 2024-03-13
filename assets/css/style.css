@@ -26,6 +26,8 @@
 
 /* #region ||||| COMMON RULES ||||| */
 
-
+body {
+    font-family: "Fredoka", sans-serif;
+}
 
 /* #endregion ||||| COMMON RULES ||||| */
