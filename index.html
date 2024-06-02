@@ -30,50 +30,57 @@
 <body>
 
     <div id="app" class="m-3">
+        <div class="container my-5">
 
-        <h1>My ToDo List</h1>
+            <h1>My ToDo List</h1>
 
-        <div class="mb-3 w-50">
+            <div class="mb-3 w-50">
 
-            <!-- Instructions -->
-            <label class="form-label">
+                <!-- Instructions -->
+                <label class="form-label mb-3">
 
-                <span class="pe-3"> 1. Insert new task in the input form</span>
-                <span class="pe-3"> 2. Click on task name to complete it </span>
-                <span class="pe-3"> 3. Click on the <i class=" fa-solid fa-xmark text-danger"></i> to remove task from
-                    list </span>
+                    <span class="pe-3"> 1. Insert new task in the input form</span>
+                    <br>
+                    <span class="pe-3"> 2. Click on task name to complete it </span>
+                    <br>
+                    <span class="pe-3"> 3. Click on the <i class=" fa-solid fa-xmark text-danger"></i> to remove task
+                        from
+                        list </span>
 
-            </label>
+                </label>
 
-            <!-- Input -->
-            <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" placeholder="Type your task here" v-model.trim="newTask.name"
-                    @keyup.enter="addTask()" aria-describedby="helpId" />
-                <button class="btn btn-primary" type="button" id="button-addon2" @click="addTask()">Add task</button>
+                <!-- Input -->
+                <div class="input-group mb-3 w-full">
+                    <input type="text" class="form-control" placeholder="Type your task here"
+                        v-model.trim="newTask.name" @keyup.enter="addTask()" aria-describedby="helpId" />
+                    <button class="btn btn-primary" type="button" id="button-addon2" @click="addTask()">Add
+                        task</button>
+                </div>
+                <small id="helpId" class="form-text text-danger" v-if="errorMessage"> {{ errorMessage }} </small>
+
             </div>
-            <small id="helpId" class="form-text text-danger" v-if="errorMessage"> {{ errorMessage }} </small>
+
+
+            <!-- Tasks list -->
+
+            <div class="card w-50 pt-3" v-if="tasks.length > 0">
+                <ul>
+                    <li v-for="(task, index) in tasks">
+
+                        <span @click="completeTask(index)" :class="{taskCompleted: task.done}">
+
+                            {{task.name}}
+
+                        </span>
+                        <i class=" fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
+
+                    </li>
+                </ul>
+            </div>
 
         </div>
-
-
-        <!-- Tasks list -->
-
-        <div class="card w-25 pt-3" v-if="tasks.length > 0">
-            <ul>
-                <li v-for="(task, index) in tasks">
-
-                    <span @click="completeTask(index)" :class="{taskCompleted: task.done}">
-
-                        {{task.name}}
-
-                    </span>
-                    <i class=" fa-solid fa-xmark text-danger" @click="removeTask(index)"></i>
-
-                </li>
-            </ul>
-        </div>
-
     </div>
+
 
 
     <!-- Bootstrap JS link -->
